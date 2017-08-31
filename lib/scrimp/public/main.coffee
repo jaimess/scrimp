@@ -51,7 +51,7 @@ build_input = (info, value) ->
       $input = $('<input type="text">').addClass('double-field')
       if info.default != undefined then $input.val(info.default)
       if value != undefined then $input.val(value)
-    when "BYTE", "I16", "I32", "I64"
+    when "BYTE", "I16", "I32"
       if info.enum
         $input = $('<select>').addClass('enum-field')
         for constval, name of info.enum
@@ -66,6 +66,10 @@ build_input = (info, value) ->
         $input = $('<input type="text">').addClass('int-field')
         if info.default != undefined then $input.val(info.default)
         if value != undefined then $input.val(value)
+    when "I64"
+      $input = $('<input type="text" id="jx">').addClass('int-field')
+      if info.default != undefined then $input.val(info.default)
+      if value != undefined then $input.val(value)
     when "STRING"
       $input = $('<input type="text">').addClass('string-field')
       if info.default != undefined then $input.val(info.default)

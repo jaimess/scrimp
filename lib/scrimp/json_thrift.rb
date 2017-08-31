@@ -51,6 +51,8 @@ module Scrimp
         end
       elsif type == 'DOUBLE'
         v = v.to_f
+      elsif type == 'I64'
+        v = v.to_f
       elsif field[:enum_class] && value.to_i != value
         v = field[:enum_class].const_get('VALUE_MAP').invert[value] || value
       # TODO: STOP, VOID, BYTE
